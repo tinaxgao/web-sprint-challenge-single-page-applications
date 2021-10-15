@@ -91,10 +91,14 @@ export default function Pizza() {
       id: uuid(),
       name: formValues.name.trim(),
       size: formValues.size,
-      onions: formValues.onions,
-      tomatoes: formValues.tomatoes,
-      mushrooms: formValues.mushrooms,
-      arugula: formValues.arugula,
+
+      toppings: ["onions", "tomatoes", "mushrooms", "arugula"].filter(
+        (topping) => !!formValues[topping]),
+
+    //   onions: formValues.onions,
+    //   tomatoes: formValues.tomatoes,
+    //   mushrooms: formValues.mushrooms,
+    //   arugula: formValues.arugula,
     //   glutenfree: formValues.gf,
       special: formValues.special.trim(),
     };
@@ -129,12 +133,13 @@ export default function Pizza() {
       {order
         .filter((u) => u.id.length > 6)
         .map((u) => {
-          const { id, name, size, special } = u;
+          const { id, name, size, special, mushrooms, onions, arugula, tomatoes } = u;
           return (
               
             <div key={id}>
                 <h1>Your order in on the way</h1>
               confirmation number: {id}, {name}, {size}, {special}
+              <div>Toppings{mushrooms}{ [mushrooms, onions, arugula, tomatoes].filter(t => t===true) }</div>
             </div>
           );
         })}
