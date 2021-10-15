@@ -14,7 +14,7 @@ const initialFormValues = {
   tomatoes: false,
   mushrooms: false,
   arugula: false,
-//   glutenfree: false,
+  //   glutenfree: false,
   special: "",
 };
 const initialFormErrors = {
@@ -24,7 +24,7 @@ const initialFormErrors = {
   tomatoes: false,
   mushrooms: false,
   arugula: false,
-//   glutenfree: false,
+  //   glutenfree: false,
   special: "",
 };
 const initialOrder = [];
@@ -93,13 +93,14 @@ export default function Pizza() {
       size: formValues.size,
 
       toppings: ["onions", "tomatoes", "mushrooms", "arugula"].filter(
-        (topping) => !!formValues[topping]),
+        (topping) => !!formValues[topping]
+      ),
 
-    //   onions: formValues.onions,
-    //   tomatoes: formValues.tomatoes,
-    //   mushrooms: formValues.mushrooms,
-    //   arugula: formValues.arugula,
-    //   glutenfree: formValues.gf,
+      //   onions: formValues.onions,
+      //   tomatoes: formValues.tomatoes,
+      //   mushrooms: formValues.mushrooms,
+      //   arugula: formValues.arugula,
+      //   glutenfree: formValues.gf,
       special: formValues.special.trim(),
     };
     postNewUser(newOrder);
@@ -135,14 +136,20 @@ export default function Pizza() {
         .map((u) => {
           const { id, name, size, special, toppings } = u;
           return (
-              
             <div key={id}>
-                <h1>Your order in on the way</h1>
-              <div>confirmation number: {id}
-              <h3> {name}</h3> 
-              <p>Size: {size}</p>
-              <p>Special Instructions: {special} </p></div>
-              <div>Toppings: { toppings.map(t => {return <p>{t}</p>}) }</div>
+              <h1>Your order in on the way</h1>
+              <h3> {name}</h3>
+              <div>
+                confirmation number: {id}
+                <p>Size: {size}</p>
+                <p>Special Instructions: {special} </p>
+              </div>
+              <div>
+                Toppings:{" "}
+                {toppings.map((t) => {
+                  return <p>{t}</p>;
+                })}
+              </div>
             </div>
           );
         })}
