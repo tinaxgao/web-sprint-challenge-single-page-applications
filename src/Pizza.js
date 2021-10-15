@@ -133,13 +133,16 @@ export default function Pizza() {
       {order
         .filter((u) => u.id.length > 6)
         .map((u) => {
-          const { id, name, size, special, mushrooms, onions, arugula, tomatoes } = u;
+          const { id, name, size, special, toppings } = u;
           return (
               
             <div key={id}>
                 <h1>Your order in on the way</h1>
-              confirmation number: {id}, {name}, {size}, {special}
-              <div>Toppings{mushrooms}{ [mushrooms, onions, arugula, tomatoes].filter(t => t===true) }</div>
+              <div>confirmation number: {id}
+              <h3> {name}</h3> 
+              <p>Size: {size}</p>
+              <p>Special Instructions: {special} </p></div>
+              <div>Toppings: { toppings.map(t => {return <p>{t}</p>}) }</div>
             </div>
           );
         })}
