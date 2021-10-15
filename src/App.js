@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Home from "./Home";
 
 const App = () => {
   return (
@@ -14,12 +15,11 @@ const App = () => {
           <Link to="/">Help</Link>
         </nav>
       </header>
-      <div className="hero">
-        <p>Your favorite food delivered while you code!</p>
-        <Link to="INSERTORDERPAGE">Order</Link>
-      </div>
+
       <Switch>
-        
+        <Route exact path="/">
+          <Home />
+        </Route>
       </Switch>
     </div> //ends app wrapper
   );
