@@ -21,7 +21,13 @@ export default function Form(props) {
         <div className="option">
           What is your name? <div className="error">{errors.name}</div>
         </div>
-        <input type="text" value={values.name} id="name" name="name" onChange={onChange}/>
+        <input
+          type="text"
+          value={values.name}
+          id="name-input"
+          name="name"
+          onChange={onChange}
+        />
       </label>
 
       <label>
@@ -45,34 +51,69 @@ export default function Form(props) {
       </div>
       <label>
         Onions
-        <input type="checkbox" name="onions" onChange={onChange} checked={values.onions} />
+        <input
+          type="checkbox"
+          name="onions"
+          onChange={onChange}
+          checked={values.onions}
+        />
       </label>
       <label>
         Tomatoes
-        <input type="checkbox" name="tomatoes" onChange={onChange} checked={values.tomatoes}
+        <input
+          type="checkbox"
+          name="tomatoes"
+          onChange={onChange}
+          checked={values.tomatoes}
         />
       </label>
 
       <label>
         Mushrooms
-        <input type="checkbox" name="mushrooms" onChange={onChange} checked={values.mushrooms}
+        <input
+          type="checkbox"
+          name="mushrooms"
+          onChange={onChange}
+          checked={values.mushrooms}
+        />
+      </label>
+
+      <label>
+        Arugula
+        <input
+          type="checkbox"
+          name="arugula"
+          onChange={onChange}
+          checked={values.arugula}
         />
       </label>
 
       <h4>Substitutions</h4>
-      <label class="switch"> 
-         <input type="checkbox" name="glutenfree" checked={values.gf} onChange={onChange} />
-            <span class="slider"></span><p>Gluten-fee</p>
-            </label>
+      <label class="switch">
+        <input
+          type="checkbox"
+          name="glutenfree"
+          checked={values.gf}
+          onChange={onChange}
+        />
+        <span class="slider"></span>
+        <p>Gluten-fee</p>
+      </label>
 
       <label>
         <div className="option">
           <p>Special Instructions:</p>
         </div>
-        <input type="text" value={values.special} id="special-text" name="special" onChange={onChange}/>
+        <input
+          type="text"
+          value={values.special}
+          id="special-text"
+          name="special"
+          onChange={onChange}
+        />
       </label>
 
-      <button disabled={disabled}>Submit</button>
+      <button disabled={disabled} id="order-button">Add to Order</button>
     </div>
   );
 }

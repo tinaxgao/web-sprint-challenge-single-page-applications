@@ -10,8 +10,8 @@ const formSchema = yup.object().shape({
   onions: yup.boolean(),
   tomatoes: yup.boolean(),
   mushrooms: yup.boolean(),
-  bellpeppers: yup.boolean(),
   onions: yup.boolean(),
+  arugula: yup.boolean(),
   glutenfree: yup.boolean(),
   special: yup.string().trim(),
 });

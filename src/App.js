@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
@@ -14,15 +14,14 @@ const App = () => {
         </Link>
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/">Help</Link>
+          <Link to="#">Help</Link>
         </nav>
       </header>
 
+      <Switch>
       <Route path="/pizza">
           <Pizza />
         </Route>
-
-      <Switch>
         <Route exact path="/">
           <Home />
         </Route>

@@ -12,7 +12,7 @@ const initialFormValues = {
   onions: false,
   tomatoes: false,
   mushrooms: false,
-  bellpeppers: false,
+  arugula: false,
   glutenfree: false,
   special: "",
 };
@@ -22,7 +22,7 @@ const initialFormErrors = {
   onions: false,
   tomatoes: false,
   mushrooms: false,
-  bellpeppers: false,
+  arugula: false,
   glutenfree: false,
   special: "",
 };
@@ -90,10 +90,10 @@ export default function Pizza() {
       id: uuid(),
       name: formValues.name.trim(),
       size: formValues.size,
-      onions: false,
-      tomatoes: false,
-      mushrooms: false,
-      bellpeppers: false,
+      onions: formValues.onions,
+      tomatoes: formValues.tomatoes,
+      mushrooms: formValues.mushrooms,
+      arugula: formValues.arugula,
       glutenfree: formValues.gf,
       special: formValues.special,
     };
@@ -121,6 +121,7 @@ export default function Pizza() {
         disabled={disabled}
         change={inputChange}
         errors={formErrors}
+        id="pizza-form"
       />
     </div>
   );
