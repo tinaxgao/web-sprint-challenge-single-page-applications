@@ -5,6 +5,7 @@ describe("Pizza ordering app test", () => {
   const foobarInput = () => cy.get("input[name=foobar]");
   const nameInput = () => cy.get("input[name=name]");
   const specialInput = () => cy.get("input[name=special]");
+  const sizeInput = () => cy.get("select[name=size]");
   const submitBtn = () => cy.get("button");
   // Toppings
 
@@ -21,6 +22,7 @@ describe("Pizza ordering app test", () => {
     foobarInput().should("not.exist");
     specialInput().should("exist");
     submitBtn().should("exist");
+    sizeInput().should("exist");
     cy.contains("Add to Order").should("exist");
   });
 
@@ -29,10 +31,13 @@ describe("Pizza ordering app test", () => {
       .should("have.value", "")
       .type("itsamemario")
       .should("have.value", "itsamemario");
+
+    sizeInput().select("small").should("have.value", "small");
+
     specialInput()
       .should("have.value", "")
-      .type("mario@plumber.com")
-      .should("have.value", "mario@plumber.com");
+      .type("hot sauce")
+      .should("have.value", "hot sauce");
     submitBtn().click();
     cy.contains("itsamemario");
   });
