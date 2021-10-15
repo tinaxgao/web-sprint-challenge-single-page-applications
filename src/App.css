@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+/* start */
+
+.hero {
+  width: 100vw;
+  height: 20vh;
+  background-image: url(./Assets/Pizza.jpg);
+  background-size: cover;
+  border: 1px solid red;
+}
