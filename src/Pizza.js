@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 import axios from "axios";
-import { v4 as uuid } from 'uuid'
+import { v4 as uuid } from "uuid";
 import * as yup from "yup";
 import schema from "./validation/formSchema";
 import Form from "./OrderForm";
@@ -13,7 +14,7 @@ const initialFormValues = {
   tomatoes: false,
   mushrooms: false,
   arugula: false,
-  glutenfree: false,
+//   glutenfree: false,
   special: "",
 };
 const initialFormErrors = {
@@ -23,7 +24,7 @@ const initialFormErrors = {
   tomatoes: false,
   mushrooms: false,
   arugula: false,
-  glutenfree: false,
+//   glutenfree: false,
   special: "",
 };
 const initialOrder = [];
@@ -65,7 +66,7 @@ export default function Pizza() {
       });
   };
 
-    // EVENT HANDLERS
+  // EVENT HANDLERS
   // >> declare validation using yup
   const validate = (name, value) => {
     yup
@@ -94,27 +95,28 @@ export default function Pizza() {
       tomatoes: formValues.tomatoes,
       mushrooms: formValues.mushrooms,
       arugula: formValues.arugula,
-      glutenfree: formValues.gf,
-      special: formValues.special,
+    //   glutenfree: formValues.gf,
+      special: formValues.special.trim(),
     };
     postNewUser(newOrder);
   };
 
-    // SIDE EFFECTS
-    useEffect(() => {
-        getOrders();
-      }, []); // executes axios get users once
-    
-      // enables submit button if form is valid
-      useEffect(() => {
-        schema.isValid(formValues).then((valid) => setDisabled(!valid));
-      }, [formValues]);
+  // SIDE EFFECTS
+  useEffect(() => {
+    getOrders();
+  }, []); // executes axios get users once
+
+  // enables submit button if form is valid
+  useEffect(() => {
+    schema.isValid(formValues).then((valid) => setDisabled(!valid));
+  }, [formValues]);
 
   return (
     <div className="form-container">
       <section className="hero">
         <h1>Order Pizza</h1>
       </section>
+
       <Form
         values={formValues}
         submit={formSubmit}
@@ -123,6 +125,17 @@ export default function Pizza() {
         errors={formErrors}
         id="pizza-form"
       />
+
+      {order
+        .filter((u) => u.id.length > 6)
+        .map((u) => {
+          const { id, name, size, special } = u;
+          return (
+            <div key={id}>
+              confirmation number: {id}, {name}, {size}, {special}
+            </div>
+          );
+        })}
     </div>
   );
 }

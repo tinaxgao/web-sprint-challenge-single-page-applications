@@ -10,15 +10,12 @@ export default function Home() {
 
   return (
     <div className="home-wrapper">
-      
-      
       <section className="hero">
         <p>Your favorite food delivered while you code!</p>
         <button onClick={routeToOrder} className="order-pizza" id="order-pizza">
-        Shop now!
-      </button>
+          Shop now!
+        </button>
       </section>
-
       
     </div>
   );

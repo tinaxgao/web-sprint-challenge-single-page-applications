@@ -6,8 +6,10 @@ describe("Pizza ordering app test", () => {
   const nameInput = () => cy.get("input[name=name]");
   const specialInput = () => cy.get("input[name=special]");
   const sizeInput = () => cy.get("select[name=size]");
+//   const hiddenId = () => cy.get('input[name=id]');
   const submitBtn = () => cy.get("button");
   // Toppings
+  const toppings = () => cy.get("[type=checkbox]");
 
   it("sanity check", () => {
     //"it" is a test. "expect" is an assertion
@@ -23,6 +25,8 @@ describe("Pizza ordering app test", () => {
     specialInput().should("exist");
     submitBtn().should("exist");
     sizeInput().should("exist");
+    toppings().should("exist");
+    // hiddenId().should('exist');
     cy.contains("Add to Order").should("exist");
   });
 
@@ -33,7 +37,7 @@ describe("Pizza ordering app test", () => {
       .should("have.value", "itsamemario");
 
     sizeInput().select("small").should("have.value", "small");
-
+    toppings().check();
     specialInput()
       .should("have.value", "")
       .type("hot sauce")

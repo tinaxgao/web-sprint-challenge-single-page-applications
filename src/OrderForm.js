@@ -1,7 +1,18 @@
 import React from "react";
+import styled from 'styled-components'
+import { v4 as uuid } from 'uuid'
+
+// const Hidden = styled.input.attrs(props => ({
+//     type: "text",
+//     name: "id",
+//   }))`
+//   display:none;
+// `;
 
 export default function Form(props) {
-  const { values, submit, disabled, change, errors } = props; //add change later
+  const { values, submit, disabled, change, errors } = props;
+//   const uniqueId = uuid();
+//   console.log(uniqueId);
 
   const onChange = (evt) => {
     const { name, value, checked, type } = evt.target; //pull those values from evt.target
@@ -16,6 +27,7 @@ export default function Form(props) {
 
   return (
     <form className="form-container" onSubmit={onSubmit}>
+        {/* // <Hidden value="uniqueId" /> */}
       <h1>Build your pizza</h1>
       <label>
         <div className="option">
@@ -88,17 +100,17 @@ export default function Form(props) {
         />
       </label>
 
-      <h4>Substitutions</h4>
-      <label class="switch">
-        <input
-          type="checkbox"
-          name="glutenfree"
-          checked={values.gf}
-          onChange={onChange}
-        />
-        <span class="slider"></span>
-        <p>Gluten-fee</p>
-      </label>
+    {/* //   <h4>Substitutions</h4>
+    //   <label class="switch">
+    //     <input
+    //       type="checkbox"
+    //       name="glutenfree"
+    //       checked={.gf}
+    //       onChange={}
+    //     />
+    //     <span class="slider"></span>
+    //     <p>Gluten-fee</p>
+    //   </label> */}
 
       <label>
         <div className="option">
