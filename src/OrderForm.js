@@ -41,7 +41,7 @@ export default function Form(props) {
         </select>
       </label>
       <div className="option">
-        <p>Select your toppings:</p>
+        <p>Add toppings:</p>
       </div>
       <label>
         Onions
@@ -58,6 +58,12 @@ export default function Form(props) {
         <input type="checkbox" name="mushrooms" onChange={onChange} checked={values.mushrooms}
         />
       </label>
+
+      <h4>Substitutions</h4>
+      <label class="switch"> 
+         <input type="checkbox" name="glutenfree" checked={values.gf} onChange={onChange} />
+            <span class="slider"></span><p>Gluten-fee</p>
+            </label>
 
       <label>
         <div className="option">
