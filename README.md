@@ -42,7 +42,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project
+- [x] Create a forked copy of this project
 - [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
 - [ ] Implement the project on the main branch, committing changes regularly
 - [ ] Push commits: `git push origin main`
