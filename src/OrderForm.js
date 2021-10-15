@@ -17,23 +17,16 @@ export default function Form(props) {
   return (
     <div className="form-container" onSubmit={onSubmit}>
       <h1>Build your pizza</h1>
-
-      <div className="errors">
-        <div>{errors.name}</div>
-        <div>{errors.email}</div>
-        <div>{errors.password}</div>
-        <div>{errors.tos}</div>
-      </div>
       <label>
         <div className="option">
-          <p>What is your name?</p> <p>required</p>
+          What is your name? <div className="error">{errors.name}</div>
         </div>
-        <input type="text" value={values.name} id="name" name="name" />
+        <input type="text" value={values.name} id="name" name="name" onChange={onChange}/>
       </label>
 
       <label>
         <div className="option">
-          <p>Choose a size:</p> <p>required</p>
+          Choose a size: <div className="error">{errors.size}</div>
         </div>
         <select
           onChange={onChange}
@@ -70,7 +63,7 @@ export default function Form(props) {
         <div className="option">
           <p>Special Instructions:</p>
         </div>
-        <input type="text" value={values.special} id="special-text" name="special" />
+        <input type="text" value={values.special} id="special-text" name="special" onChange={onChange}/>
       </label>
 
       <button disabled={disabled}>Submit</button>
