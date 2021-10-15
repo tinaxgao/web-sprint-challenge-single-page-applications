@@ -131,7 +131,9 @@ export default function Pizza() {
         .map((u) => {
           const { id, name, size, special } = u;
           return (
+              
             <div key={id}>
+                <h1>Your order in on the way</h1>
               confirmation number: {id}, {name}, {size}, {special}
             </div>
           );
